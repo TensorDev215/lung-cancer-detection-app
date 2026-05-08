@@ -91,10 +91,10 @@ class PatientView(APIView):
     
     
     
-    # def get(self, request, format=None):
-    #     candidates = Patientdb.objects.all()
-    #     serializer = PatientSerializer(candidates, many=True)
-    #     return Response({'status':'success','candidates':serializer.data}, status=status.HTTP_200_OK)
+    def get(self, request, format=None):
+        candidates = Patientdb.objects.all()
+        serializer = PatientSerializer(candidates, many=True)
+        return Response({'status':'success','candidates':serializer.data}, status=status.HTTP_200_OK)
     
 
 
