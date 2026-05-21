@@ -102,20 +102,20 @@ class PatientView(APIView):
 
 
 # Patient details 
-# @api_view(['GET'])
-# def get_patient_details(request):
-#     name = request.GET.get('name')
+@api_view(['GET'])
+def get_patient_details(request):
+    name = request.GET.get('name')
 
-#     if not name:
-#         return Response({'error': 'Please provide a name to search for.'}, status=400)
+    if not name:
+        return Response({'error': 'Please provide a name to search for.'}, status=400)
     
-#     patients = Patientdb.objects.filter(name__icontains=name)
+    patients = Patientdb.objects.filter(name__icontains=name)
 
-#     if not patients:
-#         return Response({'error': 'Patient not found.'}, status=404)
+    if not patients:
+        return Response({'error': 'Patient not found.'}, status=404)
 
-#     serializer = PatientSerializer(patients, many=True)
-#     return Response(serializer.data)
+    serializer = PatientSerializer(patients, many=True)
+    return Response(serializer.data)
 
 
 
